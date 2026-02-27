@@ -1,0 +1,17 @@
+[project]
+name = "dicom-report"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Filip Christiansen", email = "filip.christiansen.2@ki.se" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pillow",
+    "dapr",
+    "dapr-ext-grpc",
+    "python-dotenv",
+    "pydicom",
+    "numpy",
+]
