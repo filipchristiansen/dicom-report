@@ -1,10 +1,14 @@
-# Python-generated files
-__pycache__/
-*.py[oc]
-build/
-dist/
-wheels/
-*.egg-info
+# OS files
+.DS_Store
 
-# Virtual environments
+# Python cache
+__pycache__/
+
+# Virtual environment
 .venv
+
+# Test reports
+test_reports/
+
+# Results
+results/
