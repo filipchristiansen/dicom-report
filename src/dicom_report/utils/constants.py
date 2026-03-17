@@ -2,7 +2,6 @@
 
 from typing import NamedTuple
 
-
 REPORT_WIDTH: int = 3840
 REPORT_HEIGHT: int = 2160
 THUMBNAIL_SPACING: int = 25

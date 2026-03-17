@@ -18,7 +18,11 @@ dependencies = ["pillow"]
 
 [dependency-groups]
 dev = [
-    "pytest>=9.0.2",
+    "pytest>=8",
+    "ruff>=0.9",
+    "mypy>=1.19.0",
+    "pydoclint>=0.8.3",
+    "pylint>=4.0.4",
     "ipykernel>=6.28.0",
     "pandas>=2.0.0",
     "numpy>=1.26.0",
@@ -28,3 +32,67 @@ dev = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 
+[tool.ruff]
+src = ["src"]
+target-version = "py312"
+line-length = 118
+lint.select = [
+  # Style & format
+  "E",   # pycodestyle errors
+  "W",   # pycodestyle warnings
+  "I",   # isort
+  "Q",   # flake8-quotes
+  "UP",  # pyupgrade
+  "ISC", # flake8-implicit-str-concat
+  "TID", # flake8-tidy-imports
+  "ICN", # flake8-import-conventions (e.g. numpy→np, pandas→pd)
+  # Correctness & bugs
+  "F",   # pyflakes
+  "B",   # flake8-bugbear
+  "BLE", # flake8-blind-except
+  "TRY", # tryceratops (exception handling)
+  "EM",  # flake8-errmsg
+  "RSE", # flake8-raise
+  "SLF", # flake8-self
+  # Simplify & modernize
+  "C4",  # flake8-comprehensions
+  "SIM", # flake8-simplify
+  "PTH", # flake8-use-pathlib
+  "ERA", # eradicate (commented-out code)
+  "T10", # flake8-debugger
+  "T20", # flake8-print
+  "PIE", # flake8-pie
+  "RET", # flake8-return
+  "YTT", # flake8-2020 (version checks)
+  "FLY", # flynt (f-strings)
+  "RUF", # Ruff-specific
+  # Type hints & API
+  "ANN", # flake8-annotations
+  "ARG", # flake8-unused-arguments
+  "FBT", # flake8-boolean-trap
+  # Performance & logging
+  "PERF", # perflint
+  "LOG",  # flake8-logging
+  # Security
+  "S",   # flake8-bandit
+  # Domain
+  "NPY", # NumPy
+]
+
+exclude = [
+  "__pycache__",
+  ".pytest_cache",
+]
+
+[tool.mypy]
+python_version = "3.12"
+files = ["src"]
+
+# Linting configuration
+[tool.pylint.format]
+max-line-length = 118
+
+[tool.pydoclint]
+style = "numpy"
+files = ["src"]
+check-style-mismatch = true
